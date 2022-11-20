@@ -6,4 +6,8 @@
 *.nav
 *.out
 *.pdf
+*.pyc
+*~
+__pycache__
+.idea
 .pytest_cache
