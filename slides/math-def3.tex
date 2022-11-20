@@ -1,0 +1,178 @@
+%% extra definitions
+%% September 2, 2013
+
+% math definitions
+\newcommand{\OM}{\Omega}
+\newcommand{\RE}{\mathbb{R}}
+\newcommand{\PO}{\mathbb{P}}
+\newcommand{\NA}{\mathbb{N}}
+\newcommand{\ra}{\mathfrak{r}}
+\newcommand{\Dt}{\Delta t}
+\newcommand{\Dx}{\Delta x}
+\newcommand{\Dif}[2]{\frac{d {#1}}{d {#2}}}
+\newcommand{\PDif}[2]{\frac{\partial {#1}}{\partial {#2}}}
+%
+\newcommand{\Lsp}{\textrm{L}}
+\newcommand{\Hsp}{\textrm{H}}
+\newcommand{\Tsp}{\textrm{T}}
+%
+\newcommand{\Uh}{\mathbf{u}_h}
+\newcommand{\Uhbar}{\mathbf{\bar{u}}_h}
+\newcommand{\Ufbar}{\mathbf{\bar{u}}_f}
+\newcommand{\Ucbar}{\mathbf{\bar{u}}_c}
+\newcommand{\Uf}{\mathbf{u}_f}
+\newcommand{\Uc}{\mathbf{u}_c}
+\newcommand{\Eh}{\mathbf{e}_h}
+\newcommand{\Ef}{\mathbf{e}_f}
+\newcommand{\Ec}{\mathbf{e}_c}
+\newcommand{\DI}{\mathcal{D}}
+\newcommand{\Arr}[2]{
+	\left(
+		\begin{array}{c}
+		{#1} 
+		%
+		\\
+		%
+		{#2}
+		\end{array}
+	\right)
+}
+\newcommand{\Arrtri}[3]{
+	\left(
+		\begin{array}{c}
+		{#1} 
+		%
+		\\
+		%
+		{#2}
+		\\
+		%
+		{#3}		
+		\end{array}
+	\right)
+}
+\newcommand{\ARR}[4]{
+	\left(
+		\begin{array}{c}
+		{#1} 
+		%
+		\\
+		%
+		{#2}
+		\\
+		{#3} 
+		%
+		\\
+		%
+		{#4}		
+		\end{array}
+	\right)
+}
+\newcommand{\MAT}[4]{
+	\left[
+		\begin{array}{c|c}
+		{#1} 
+		%
+		&
+		%
+		{#2}
+		\\ \hline
+		{#3} 
+		%
+		&
+		%
+		{#4}		
+		\end{array}
+	\right]
+}
+\newcommand{\MATT}[4]{
+	\left[
+		\begin{array}{cc}
+		{#1} 
+		%
+		&
+		%
+		{#2}
+		\\
+		{#3} 
+		%
+		&
+		%
+		{#4}		
+		\end{array}
+	\right]
+}
+\newcommand{\MATnine}[9]{
+	\left[
+		\begin{array}{ccc}
+		{#1} & {#2} & {#3}
+		\\
+		{#4} & {#5} & {#6}
+		%
+		\\
+		%
+		{#7} & {#8} & {#9}		
+		\end{array}
+	\right]
+}
+
+\newcommand{\tA}{\tilde{A}}
+\newcommand{\tB}{\tilde{B}}
+\newcommand{\Ont}{\mathcal{O}}
+\newcommand{\half}{\frac{1}{2}}
+
+% Finite element, DG
+%% jump - average operators
+\newcommand{\average}[1]{\ensuremath{\lbrace\!\!\lbrace#1\rbrace\!\!\rbrace} } 
+\newcommand{\jump}[1]{\ensuremath{[\![#1]\!]} }
+
+\newcommand{\jumpF}[1]{\ensuremath{[\![\![#1]\!]\!]} }
+\newcommand{\averageF}[1]{\ensuremath{\lbrace\!\lbrace\!\lbrace#1\rbrace\!\rbrace\!\rbrace} } 
+
+
+\newcommand{\diff}{\varepsilon} %usata
+%
+\newcommand{\Th}{\mathcal{T}_h} %usata
+\newcommand{\Thi}[1]{\mathcal{T}_{h,#1}} %usata
+\newcommand{\Ti}[1]{\mathcal{T}_{#1}} %usata
+%
+\newcommand{\TAU}{{\boldsymbol \tau}}
+\newcommand{\SIG}{{\boldsymbol \sigma} }
+\newcommand{\BT}{{\boldsymbol \beta}}
+\newcommand{\NOR}{{\boldsymbol n} }
+\newcommand{\fB}{{\boldsymbol f} }
+\newcommand{\vB}{{\boldsymbol v} }
+\newcommand{\uB}{{\boldsymbol u} }
+\newcommand{\wB}{{\boldsymbol w} }
+\newcommand{\BO}[1]{{\boldsymbol #1} }
+\newcommand{\lB}{{\boldsymbol \lambda} }
+\newcommand{\phiB}{{\boldsymbol \varphi} }
+\newcommand{\UDOF}{\underline{\boldsymbol u} }
+\newcommand{\SDOF}{\underline{\boldsymbol \sigma} }
+\newcommand{\Bopt}{\mathcal{B}}
+\newcommand{\Hopt}{\mathcal{H}}
+\newcommand{\Zopt}{{\boldsymbol \theta}}
+%
+\newcommand{\EPS}{ \mathcal{E} }
+%
+\newcommand{\GAMF}{ \Gamma^{ \mathtt{f} } }
+\newcommand{\GAMI}{ \Gamma^{ 0 } }
+\newcommand{\GAM}{ \Gamma }
+
+%
+\newcommand{\dotV}[2]{\left( {#1} , {#2} \right) }
+\newcommand{\dotS}[2]{\left\langle #1 , #2 \right\rangle }
+
+\newcommand{\Nel}{N_{\text{el} }}
+\newcommand{\hmax}{h_{\text{max} }}
+%\newcommand{\trin}[1]{{\left\vert\kern-0.25ex\left\vert\kern-0.25ex\left\vert #1 
+%   \right\vert\kern-0.25ex\right\vert\kern-0.25ex\right\vert}}
+\newcommand{\DGnorm}[2]{\Vert {#1} \Vert_{\textrm{\tt DG}{#2}} }
+\newcommand{\Bnorm}[2]{\Vert {#1} \Vert_{{\tt HDG} #2} }
+\newcommand{\Lnorm}[1]{{ \Vert #1 \Vert }}
+\newcommand{\semin}[1]{\left| #1 \right|}
+
+%\newcommand*{\defeq}{\mathrel{\vcenter{\baselineskip0.5ex \lineskiplimit0pt
+%                                  \hbox{\scriptsize.}\hbox{\scriptsize.}}}=}
+\newcommand{\norm}[1]{{ \Vert #1 \Vert }}
+

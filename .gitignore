@@ -1,0 +1,9 @@
+*.aux
+*.ipynb
+*.toc
+*.snm
+*.log
+*.nav
+*.out
+*.pdf
+.pytest_cache

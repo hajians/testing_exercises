@@ -1,0 +1,223 @@
+\documentclass[9pt,xcolor=dvipsnames]{beamer}
+\usepackage[all]{xy}
+\usepackage{animate}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+%\newtheorem{theorem}{Theorem}
+
+% for figs from GeoGebra
+\usepackage[utf8]{inputenc}
+\usepackage{pgf,tikz}
+\usetikzlibrary{arrows}
+% end GeoGebra
+\usepackage{listings}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+ 
+\lstdefinestyle{pystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+\lstset{style=pystyle}
+
+\usepackage{wrapfig}
+
+%\usepackage[pdftex]{graphicx}
+%\usepackage{epstopdf}
+%\usepackage{graphicx}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newcommand{\Ropt}{\mathcal{R}}
+\newcommand{\semfootnote}[1]{\let\thefootnote\relax\footnotetext{#1}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\definecolor{MyBlue}{rgb}{0.1,0.3,1} 
+\definecolor{MyBlue2}{rgb}{0.1,0.3,0.6}
+\definecolor{orange}{rgb}{0.5,0.5,0.}
+\definecolor{darkblue}{rgb}{.1,.1,.1}
+\definecolor{darkgreen}{rgb}{0.,.4,0.}
+
+\mode<presentation>
+{
+\usetheme{Pittsburgh}
+\usecolortheme{seahorse}
+\setbeamertemplate{blocks}[rounded]
+\setbeamercolor{title}{bg=MyBlue2,fg=white}
+\setbeamercolor{frametitle}{bg=MyBlue2,fg=white}
+%\setbeamercolor{section number projected}{bg=gray!50,fg=black}
+\setbeamercolor{section in toc}{fg=black}
+\setbeamercolor{block title}{fg=black,bg=darkgreen!70}
+\setbeamercolor{block body}{fg=black,bg=darkgreen!10}
+%\setbeamercolor{block title alerted}{fg=red,bg=darkgreen!40}
+%\setbeamerfont{block title}{series=\bfseries, bg=Myblue}
+\setbeamerfont{title}{size=\LARGE}
+%
+%\usefonttheme{serif}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\usepackage{remreset}
+%\makeatletter
+%\@removefromreset{subsection}{section}
+%\makeatother
+%\setcounter{subsection}{-1}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{math-def3}
+%
+% Tikz configuration
+\tikzset{
+  every overlay node/.style={
+    %draw=black,fill=white,rounded corners,
+    anchor=north west, inner sep=0pt,
+  },
+}
+% Usage:
+% \tikzoverlay at (-1cm,-5cm) {content};
+% or
+% \tikzoverlay[text width=5cm] at (-1cm,-5cm) {content};
+\def\tikzoverlay{%
+   \tikz[remember picture, overlay]\node[every overlay node]
+}%
+%
+\begin{document}
+%
+\date{Nov. 25, 2022}
+
+\author[S. Hajian]{
+	{Soheil Hajian}
+	}
+%
+\institute[]
+	{
+	  %\inst{1}
+	\vspace{1cm}
+	{\normalsize\texttt{soheil.hajian@outlook.com}}
+	}
+
+%
+%							
+%\\[1cm]    			
+%
+\setbeamertemplate{navigation symbols}{} % get the rid of navigation symbols
+\setbeamertemplate{footline}[frame number]
+%
+\title[]{Software testing: What, Why and How}
+
+%
+%\subtitle[]{Discontinuous Galerkin method}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\begin{frame}[plain]
+   %% \tikz [remember picture,overlay]
+   %%  \node at
+   %%      ([yshift=4.cm, xshift=-3cm]current page.south) 
+   %%      %or: (current page.center)
+   %%      {\includegraphics[]{figs/mesh/ddmesh5.jpg}};
+
+\begin{titlepage}
+\end{titlepage}
+\vfill
+\end{frame}
+
+\begin{frame}{Outline}
+    \tableofcontents
+\end{frame}
+%
+%% \begin{frame}[plain]
+%%   \begin{center}
+%%     \begin{enumerate}
+%%     \item Part I: elliptic PDEs, Ritz-Galerkin approximation and main result
+%%       \vspace{0.5cm}
+%%     \item Part II: discontinuous Galerkin method, domain decomposition
+%%       methods and technical results
+%%     \end{enumerate}
+%%   \end{center}
+%% \end{frame}
+%% %
+%% \begin{frame}[plain]
+%%   \begin{center}
+%%     \huge
+%%     Part I: elliptic PDEs, Ritz-Galerkin approximation and main result
+%%   \end{center}
+%% \tikzoverlay (n1) at (-0.cm,-3.75cm) {%
+%%   \begin{minipage}{\textwidth}%
+%%     {\small (you are not allowed to fall sleep in this part)}
+%%   \end{minipage}
+%% };%
+%% \end{frame}
+%
+
+\section{What is software testing, and why is it important?}
+\begin{frame}
+  \frametitle{What is software testing, and why is it important?}
+  \begin{itemize}
+  \item What is testing?
+    \begin{itemize}
+    \item \textbf{Software testing} is the process of verfiying that a
+      software does what it is supposed to do.
+    \item Verifiability implies some knowledge of \textbf{requirements} for that software
+      or its components.
+    \end{itemize}
+    \pause 
+  \item Why is testing important?
+    \begin{itemize}
+      \item A test is a certificate that the software (or a piece of
+        it) behaves as expected.
+      \item Ensures that future updates to the software do not break
+        old behavior.
+      \item Gives a sense of code reliability. 
+    \end{itemize}
+  \end{itemize}
+
+\end{frame}
+
+\section{Different levels of testing}
+\begin{frame}
+  \frametitle{Different levels of testing}
+  It is common practice to split the testing into different
+  levels. The most common splitting contains: \textbf{unit-}, \textbf{integration-}, and
+  \textbf{system testing}.
+  \vspace{1cm}
+  \begin{center}
+    \includegraphics[scale=0.3]{figs/levels.png}
+  \end{center}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Unit testing}
+  \begin{itemize}
+    \item \textbf{Unit testing} is usually referred to testing an
+      \textbf{individual component} of the code, e.g., functions or methods of a class.
+    \item \textbf{Example:} Write a function that takes a float as
+      input and returns the score of the input.
+      \pause
+      \begin{itemize} 
+      \item Code:
+        \lstinputlisting[language=Python]{../testing_exercises/some_functions/square.py}
+        \pause
+      \item Test:
+        \lstinputlisting[language=Python]{../tests/unit_tests/some_functions/test_square.py}
+      \end{itemize}
+  \end{itemize}
+\end{frame}
+\end{document}
+%
