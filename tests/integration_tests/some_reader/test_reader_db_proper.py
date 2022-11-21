@@ -1,3 +1,4 @@
+import os
 import unittest
 
 import sqlalchemy
@@ -32,15 +33,13 @@ class TestReaderDB(unittest.TestCase):
     def tearDown(self) -> None:
         self.postgres.stop()
 
+    @unittest.skipIf(os.environ.get("CI", True), "Skipping this test in github.")
     def test_reader_db(self):
         # Given
         age = 20
         postgres = self.postgres
 
         # When
-        e = sqlalchemy.create_engine(self.postgres.get_connection_url())
-        r = e.execute("SELECT * FROM PERSONS;")
-
         output = read_db_proper(
             database=postgres.POSTGRES_DB,
             user=postgres.POSTGRES_USER,
