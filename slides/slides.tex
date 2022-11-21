@@ -284,5 +284,70 @@
   \end{overlayarea}
 \end{frame}
 
+\section{Tips and tricks}
+\begin{frame}
+  \frametitle{Tips and tricks for Python}
+  \begin{overlayarea}{\textwidth}{\textheight}
+  \begin{itemize}
+    \item Use {\color{red}\tt mock} library in {\tt python} to simulate
+      outside world, e.g., databases and end-points, during
+      {\color{red}unit-testing}.
+    \item<only@2>[] Example: Write test for a function that takes
+      credentials to connect to a database, runs a query and return the
+      result as a dataframe.
+      \lstinputlisting[language=Python]{
+        ../tests/unit_tests/some_reader/test_reader_db.py}
+      \item<3-> There are two packages for testing: {\tt pytest} and
+        {\tt unittest}.
+
+        (personal opinion: {\tt unittest} is more
+        explicit and verbose to read)
+          \item<4-> If your code writes files into the disk,
+            create temporary paths for it during the test; DO NOT
+            WRITE INTO A HARD-CODED PATH.
+          \item<only@4>[] \lstinputlisting[language=Python]{../tests/unit_tests/some_writer/test_writer.py}
+        \item<5-> Tests should be deterministic: if your code relies
+          on random generators, fix the {\tt \color{red}seed} number during the test.
+        \item<6-> In order to simulate a real database for integration
+          test, try to use {\color{red}a test container} for it. (not
+          always possible)
+          \item<7-> Using {\tt Given, When, Then} pattern improves
+            readability of the test. (optional)
+  \end{itemize}
+  \end{overlayarea}
+\end{frame}
+
+\section{Exercises}
+\begin{frame}
+  \frametitle{Exercises - Unit testing}
+  \begin{itemize}
+  \item Write test for a function that
+    \begin{itemize}
+    \item takes two inputs,
+    \item each input can be either a string or {\tt None},
+    \item if both strings are present, concatenate them and return
+      the value,
+    \item if either of them is {\tt None}, return {\tt None}. 
+    \end{itemize}
+  \item Implement the function under
+    \url{testing_exercises/some_functions/concatenate.py}
+  \item Use TDD framework.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Exercises - Unit testing II}
+  \begin{itemize}
+  \item Write test for a function that
+    \begin{itemize}
+    \item takes arbitrary number of inputs,
+    \item accepts only integers,
+    \item returns their sum.
+    \end{itemize}
+  \item Use {\tt *args} to pass arbitrary number of inputs.
+    \item Use TDD framework.
+  \end{itemize}
+\end{frame}
+
 \end{document}
 %
