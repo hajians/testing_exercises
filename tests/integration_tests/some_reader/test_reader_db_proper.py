@@ -33,7 +33,7 @@ class TestReaderDB(unittest.TestCase):
     def tearDown(self) -> None:
         self.postgres.stop()
 
-    @unittest.skipIf(os.environ.get("CI", True), "Skipping this test in github.")
+    @unittest.skipIf(os.environ.get("CI") == 'true', "Skipping this test in github.")
     def test_reader_db(self):
         # Given
         age = 20
