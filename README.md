@@ -5,7 +5,7 @@ In order to have a smooth workshop, please follow the instructions below and pre
 
 * Install `docker`, e.g., for Ubuntu follow instructions here https://docs.docker.com/engine/install/ubuntu/
 * Install Anaconda3, e.g., follow instructions here https://www.anaconda.com/products/distribution#linux
-* Create a `python3.8`:
+* Create a `python3.8` environment:
     ```
      conda create python=3.8 -n MY_ENV_NAME 
     ```
@@ -22,4 +22,4 @@ In order to have a smooth workshop, please follow the instructions below and pre
     ```
     pytest -vv
     ```
-    (First run might take some time, since it download a docker image for Postgres)
+    (First run might take some time, since it downloads a docker image for Postgres)
