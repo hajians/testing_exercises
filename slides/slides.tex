@@ -349,5 +349,32 @@
   \end{itemize}
 \end{frame}
 
+\begin{frame}
+  \frametitle{Exercises - Integration testing}
+  \begin{itemize}
+  \item Write test for a function that
+    \begin{itemize}
+    \item takes credentials to connect to a Postgres database (assume
+      that the table contains names and ages of persons),
+    \item takes an argument for the age,
+    \item connect to the Postgres database and read the table,
+    \item if {\tt age} is presented in the arguments, it filters for
+      that age.
+    \item return a dataframe.
+    \end{itemize}
+  \item A first version of the code is available here:
+    \url{testing_exercises/some_reader/read_db_proper.py}
+  \item A template for testing using test containers can be found here
+    \url{tests/integration_tests/some_reader/test_reader_db_proper.py}
+  \end{itemize}
+  
+\end{frame}
+
+\begin{frame}
+  \frametitle{}
+  {\Large Thank you!}
+\end{frame}
+
+
 \end{document}
 %
