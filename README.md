@@ -1,4 +1,4 @@
-[![<hajians>](https://circleci.com/gh/hajians/testing_exercises.svg?style=svg&circle-token=c808e77c338178a4eda399f2efe648a723b9c972)]()
+[![<hajians>](https://circleci.com/gh/hajians/testing_exercises.svg?style=svg&circle-token=c808e77c338178a4eda399f2efe648a723b9c972)](https://app.circleci.com/pipelines/github/hajians/testing_exercises)
 
 # Requirments
 In order to have a smooth workshop, please follow the instructions below and prepare your environment.
